@@ -1,0 +1,478 @@
+/* framework-style.css - 个人主页最终版（匹配参考导航+多端适配） */
+/* 整理优化版 - 保持原有功能不变 */
+
+/* ========== 全局重置与基础样式 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* 根变量 - 统一管理颜色/尺寸 */
+:root {
+    --color-primary: #122192;
+    --color-gray: #666;
+    --color-light-gray: #e0e0e0;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 页面基础 */
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 通用容器样式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== 顶部导航 ========== */
+.header-wrap {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+}
+
+.header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    flex-wrap: nowrap;
+}
+
+/* Logo区域 */
+.logo-img {
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 右侧功能区 */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.header-icon {
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.header-icon:hover {
+    background-color: #f5f5f5;
+}
+
+.msg-badge {
+    display: inline-block;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #ff4444;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-left: -8px;
+    margin-top: -8px;
+    vertical-align: top;
+}
+
+.header-btn {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.header-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.header-btn.logout {
+    color: #ff4444;
+    font-weight: 500;
+}
+
+.header-btn.logout:hover {
+    background-color: #fff5f5;
+}
+
+/* ========== 个人信息栏 ========== */
+.user-info-wrap {
+    position: relative;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    max-width: 1200px;
+    margin: 0 auto 20px;
+}
+
+.info-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    z-index: 0;
+}
+
+.user-info-card {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.user-avatar-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.user-name-area {
+    flex: 1;
+    min-width: 120px;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-id {
+    font-size: 14px;
+    color: var(--color-gray);
+    font-family: "宋体";
+    margin-top: 4px;
+}
+
+.user-points-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.points-text {
+    font-size: 14px;
+    color: var(--color-gray);
+}
+
+.points-number {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.view-rights {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.right-arrow-char {
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+.points-progress {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--color-light-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-primary);
+    width: 65%;
+}
+
+/* ========== 功能菜单 ========== */
+.function-section {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.function-menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    min-width: 280px;
+}
+
+.function-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 0;
+}
+
+.function-icon-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    object-fit: contain;
+}
+
+.function-text {
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 可展开菜单按钮 */
+.menu-toggle-btn {
+    padding: 12px 20px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-top: 1px solid #eee;
+}
+
+.menu-toggle-icon {
+    font-size: 18px;
+    color: #666;
+    transition: transform 0.2s;
+}
+
+/* ========== 礼品卡区域 ========== */
+.gift-calendar-section {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.gift-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.view-all {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.gift-card-list {
+    display: flex;
+    gap: 20px;
+}
+
+.gift-card-item {
+    width: 400px;
+    height: 250px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    text-align: center;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.gift-card-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    max-width: 300px;
+    max-height: 200px;
+    margin: 0 auto;
+}
+
+.gift-card-title {
+    padding: 10px 0 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* ========== 响应式适配 - 平板 (768px以下) ========== */
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 15px;
+    }
+    
+    .logo-img {
+        max-width: 100px;
+    }
+    
+    .header-right {
+        gap: 15px;
+    }
+    
+    .header-icon {
+        font-size: 16px;
+    }
+    
+    .header-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .user-info-wrap {
+        padding: 15px;
+    }
+    
+    .user-avatar-img {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .function-menu {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .function-icon-img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .function-text {
+        font-size: 13px;
+    }
+    
+    .gift-calendar-section {
+        padding: 15px;
+        margin: 0 15px 20px;
+    }
+    
+    .gift-card-list {
+        gap: 15px;
+    }
+}
+
+/* ========== 响应式适配 - 手机 (480px以下) ========== */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+    
+    .logo-img {
+        max-width: 80px;
+    }
+    
+    .header-right {
+        gap: 10px;
+    }
+    
+    .header-icon {
+        font-size: 17px;
+    }
+    
+    .header-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+    
+    .user-info-card {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .user-points-area {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    
+    .user-avatar-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .function-menu {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 12px;
+    }
+    
+    .function-icon-img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .function-text {
+        font-size: 12px;
+    }
+    
+    .gift-calendar-section {
+        padding: 10px;
+        margin: 0 10px 20px;
+    }
+    
+    .gift-card-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .gift-card-title {
+        font-size: 13px;
+    }
+}

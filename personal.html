@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="personalstyle.css">
+</head>
+<body>
+    <div class="header-wrap">
+      <div class="header">
+          <div class="logo">
+              <img src="images/logo.png" alt="品牌Logo" class="logo-img">
+          </div>
+          
+          <div class="header-right">
+              <span class="header-icon">⚙</span>
+              <span class="header-icon">🔔<span class="msg-badge">3</span></span>
+              <a href="index.html" class="header-btn">返回首页</a>
+              <a href="#" class="header-btn logout">退出登录</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="user-info-wrap">
+        <img src="images/info-bg-layer.png" alt="信息卡片背景" class="info-bg-img">
+        
+        <div class="user-info-card">
+            <div class="card-top">
+                <img src="images/avatar.png" alt="头像" class="user-avatar-img">
+                <div class="user-name-area">
+                    <div class="user-name">雪地里来了个小画家</div>
+                    <div class="user-id">Lv小蓝鹿</div>
+                </div>
+                <div class="user-points-area">
+                    <div>
+                        <div class="points-text">目前积分</div>
+                        <div class="points-number">216</div>
+                    </div>
+                    <a href="#" class="view-rights">
+                        查看我的权益
+                        <span class="right-arrow-char">▶</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="points-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="function-section">
+        <div class="function-menu">
+            <!-- 第一行功能 -->
+            <a href="#" class="function-item">
+                <img src="images/icon-order.png" alt="我的订单" class="function-icon-img">
+                <span class="function-text">我的订单</span>
+            </a>
+            <a href="#" class="function-item">
+                <img src="images/icon-wallet.png" alt="咖啡钱包" class="function-icon-img">
+                <span class="function-text">咖啡钱包</span>
+            </a>
+            <a href="#" class="function-item">
+                <img src="images/icon-coupon.png" alt="优惠券" class="function-icon-img">
+                <span class="function-text">优惠券</span>
+            </a>
+            <a href="#" class="function-item">
+                <img src="images/icon-join.png" alt="招商加盟" class="function-icon-img">
+                <span class="function-text">招商加盟</span>
+            </a>
+            <a href="#" class="function-item">
+                <img src="images/icon-rental.png" alt="租赁合作" class="function-icon-img">
+                <span class="function-text">租赁合作</span>
+            </a>
+
+            <!-- 第二行功能 -->
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-recruit.png" alt="加入我们" class="function-icon-img">
+                <span class="function-text">加入我们</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-giftcard.png" alt="礼品卡" class="function-icon-img">
+                <span class="function-text">礼品卡</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-balance.png" alt="账户余额" class="function-icon-img">
+                <span class="function-text">账户余额</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-invoice.png" alt="发票管理" class="function-icon-img">
+                <span class="function-text">发票管理</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-exchange.png" alt="兑换优惠" class="function-icon-img">
+                <span class="function-text">兑换优惠</span>
+            </a>
+
+            <!-- 第三行功能 -->
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-union.png" alt="优惠联盟" class="function-icon-img">
+                <span class="function-text">优惠联盟</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-help.png" alt="帮助反馈" class="function-icon-img">
+                <span class="function-text">帮助反馈</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-company.png" alt="企业账号" class="function-icon-img">
+                <span class="function-text">企业账号</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-custom.png" alt="口味定制" class="function-icon-img">
+                <span class="function-text">口味定制</span>
+            </a>
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-surround.png" alt="活动周边" class="function-icon-img">
+                <span class="function-text">活动周边</span>
+            </a>
+
+            <!-- 第四行功能 -->
+            <a href="#" class="function-item hide-by-default">
+                <img src="images/icon-group.png" alt="多人团餐" class="function-icon-img">
+                <span class="function-text">多人团餐</span>
+            </a>
+        </div>
+
+        <div class="menu-toggle-btn" id="menuToggleBtn">
+            <span class="menu-toggle-icon" id="menuToggleIcon">▼</span> <!-- 图标 -->
+        </div>
+    </div>
+  
+    <!-- 送礼品卡+咖啡日历模块 -->
+    <div class="gift-calendar-section">
+        <!-- 送礼品卡区域 -->
+        <div class="gift-card-area">
+        <div class="gift-card-header">
+            <span>送礼品卡</span>
+            <a href="#" class="view-all">查看全部</a>
+        </div>
+        <div class="gift-card-list">
+            <!-- 礼品卡项1 -->
+            <div class="gift-card-item">
+            <img src="images/gift-card-1.jpg" alt="圣诞节快乐！" class="gift-card-img">
+            <div class="gift-card-title">圣诞节快乐！</div>
+            </div>
+            <!-- 礼品卡项2 -->
+            <div class="gift-card-item">
+            <img src="images/gift-card-2.jpg" alt="瑞幸陪你过冬" class="gift-card-img">
+            <div class="gift-card-title">瑞幸陪你过冬</div>
+            </div>
+            <!-- 礼品卡项3 -->
+            <div class="gift-card-item">
+            <img src="images/gift-card-3.jpg" alt="冬天喝暖咖" class="gift-card-img">
+            <div class="gift-card-title">冬天喝暖咖</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+
+    const menuToggleBtn = document.getElementById('menuToggleBtn');
+    const menuToggleIcon = document.getElementById('menuToggleIcon');
+    const functionMenu = document.querySelector('.function-menu');
+
+    let isExpanded = false;
+
+    // 初始状态设置
+    function setInitialState() {
+        if (!isExpanded) {
+            // 默认收缩：仅显示第一行
+            functionMenu.style.gridTemplateRows = 'auto';
+            functionMenu.style.overflow = 'hidden';
+            
+            // 隐藏第2行及以后的功能项
+            const items = functionMenu.querySelectorAll('.function-item');
+            items.forEach((item, index) => {
+                if (index >= 5) item.style.display = 'none';
+            });
+            
+            menuToggleIcon.textContent = '▼'; 
+        }
+    }
+
+    // 页面加载时设置初始状态
+    document.addEventListener('DOMContentLoaded', setInitialState);
+
+    // 按钮点击事件
+    menuToggleBtn.addEventListener('click', () => {
+        if (!isExpanded) {
+            // 展开：显示所有行
+            functionMenu.style.gridTemplateRows = 'auto auto auto auto';
+            functionMenu.style.overflow = 'visible';
+            
+            const items = functionMenu.querySelectorAll('.function-item');
+            items.forEach(item => item.style.display = 'flex');
+            
+            menuToggleIcon.textContent = '▲';
+        } else {
+            // 收缩：仅显示第一行
+            functionMenu.style.gridTemplateRows = 'auto';
+            functionMenu.style.overflow = 'hidden';
+            
+            const items = functionMenu.querySelectorAll('.function-item');
+            items.forEach((item, index) => {
+                if (index >= 5) item.style.display = 'none';
+            });
+            
+            menuToggleIcon.textContent = '▲'; // 收缩时显示▲
+        }
+        isExpanded = !isExpanded;
+    });
+    </script>
+</body>
+</html>
