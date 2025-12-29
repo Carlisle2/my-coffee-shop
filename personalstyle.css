@@ -429,19 +429,49 @@ body {
     }
     
     .user-info-card {
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
-    .user-points-area {
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 10px;
+    /* 缩小字体，避免换行 */
+    .user-name {
+        font-size: 16px; /* 从18px缩小 */
+    }
+    
+    .user-id {
+        font-size: 12px; /* 从14px缩小 */
+    }
+    
+    .points-text, .points-number, .view-rights {
+        font-size: 12px; /* 统一缩小 */
     }
     
     .user-avatar-img {
-        width: 50px;
-        height: 50px;
+        width: 45px; /* 头像缩小 */
+        height: 45px;
+    }
+    
+    .card-top {
+        flex-wrap: nowrap; /* 确保不换行 */
+        gap: 8px; /* 减少间隙 */
+    }
+    
+    .user-points-area {
+        flex-shrink: 0; /* 防止缩小 */
+        min-width: 140px; /* 设置最小宽度 */
+    }
+    
+    .user-name-area {
+        flex: 1;
+        min-width: 0; /* 允许缩小 */
+        overflow: hidden;
+    }
+    
+    .user-name, .user-id {
+        white-space: nowrap; /* 不换行 */
+        overflow: hidden;
+        text-overflow: ellipsis; /* 超出显示省略号 */
     }
     
     .function-menu {
@@ -461,27 +491,32 @@ body {
     
     .gift-calendar-section {
         padding: 10px;
-        margin: 0 10px 20px;
+        margin: 0 0 20px; 
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .gift-card-list {
-        flex-direction: column;  
-        gap: 10px;
-        overflow-x: visible;
-        padding: 0; 
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
     }
     
     .gift-card-item {
-        width: 100%;  
-        height: auto; 
-        flex-shrink: 1; 
+        width: 100%;
         max-width: 100%;
-        min-height: 180px; 
+        box-sizing: border-box;
+        margin: 0;
     }
     
+    .gift-card-img {
+        max-width: 100%;
+        height: auto;
+    }
     .gift-card-title {
         font-size: 13px;
     }
 
 }
+
 
