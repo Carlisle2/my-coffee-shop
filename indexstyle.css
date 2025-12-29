@@ -507,7 +507,7 @@ footer {
     left: 0;
     background: white;
     flex-direction: column;
-    width: 90%;
+    width: 30%;
     padding: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -688,5 +688,6 @@ footer {
     font-size: 10px;  
 }
 }
+
 
 
