@@ -489,7 +489,7 @@ footer {
 /* 平板 (768px以下) */
 @media (max-width: 768px) {
   .logo-img {
-    max-width: 140px;
+    max-width: 200px;
   }
 
   /* 显示汉堡菜单按钮 */
@@ -503,12 +503,11 @@ footer {
   .nav {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 50%;
     left: 0;
-    right: 0;
     background: white;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     padding: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -640,25 +639,12 @@ footer {
     font-size: 13px;
   }
 
-  /* 底部 */
-  .footer-nav {
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .footer-nav a {
-    font-size: 14px;
-  }
-
-  .footer-info {
-    text-align: center;
-  }
 }
 
 /* 手机 (480px以下) */
 @media (max-width: 480px) {
   .logo-img {
-    max-width: 120px;
+    max-width: 160px;
   }
 
   .category-item {
@@ -673,7 +659,7 @@ footer {
   }
 
   .recommend-img {
-    height: 220px;
+    height: 180px;
   }
 
   .welfare-grid {
@@ -696,27 +682,6 @@ footer {
 
   .welfare-content {
     margin-bottom: 0;
-  }
-
-  /* 搜索区域 */
-  .store-search-wrap {
-    flex-direction: column;
-  }
-
-  .store-search input {
-    width: 100%;
-    min-width: auto;
-  }
-
-  .store-search button {
-    width: 100%;
-  }
-
-  /* 底部 */
-  .footer-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
   }
 }
 
