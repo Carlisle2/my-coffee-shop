@@ -472,7 +472,7 @@ body {
     }
     
     .gift-card-item {
-        width: 100%;  /* 改为 100%，占满容器 */
+        width: 90%;  /* 改为 100%，占满容器 */
         height: auto; /* 高度自适应 */
         flex-shrink: 1; /* 允许缩小 */
         max-width: 100%; /* 最大宽度 100% */
@@ -482,4 +482,5 @@ body {
     .gift-card-title {
         font-size: 13px;
     }
+
 }
