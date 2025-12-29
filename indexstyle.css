@@ -27,6 +27,7 @@
 header {
   padding: 20px 0;
   border-bottom: 1px solid #eee;
+  position: relative;
 }
 
 .header-wrap {
@@ -35,6 +36,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+  position: relative;
 }
 
 .logo-img {
@@ -44,9 +46,28 @@ header {
   display: block;
 }
 
+/* 汉堡菜单按钮 - 默认在桌面端隐藏 */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  color: #333;
+  transition: var(--transition);
+  z-index: 1001;
+}
+
+.hamburger-btn:hover {
+  color: var(--color-primary);
+}
+
+/* 主导航样式 */
 .nav {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav a {
@@ -55,10 +76,13 @@ header {
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: bold;
+  transition: var(--transition);
+  white-space: nowrap;
 }
 
 .nav a:hover {
   background: #f5f5f5;
+  color: var(--color-primary);
 }
 
 .nav a[href="personal.html"] {
@@ -73,11 +97,17 @@ header {
 .header-right {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .header-right a {
   text-decoration: none;
   color: #333;
+  transition: var(--transition);
+}
+
+.header-right a:hover {
+  color: var(--color-primary);
 }
 
 /* ========== Banner区域 ========== */
@@ -124,6 +154,7 @@ header {
   color: #333;
   padding: 10px 0;
   border-bottom: 2px solid transparent;
+  transition: var(--transition);
 }
 
 .category-icon {
@@ -131,6 +162,7 @@ header {
   height: 40px;
   object-fit: contain;
   margin-bottom: 8px;
+  transition: var(--transition);
 }
 
 .category-text {
@@ -145,6 +177,7 @@ header {
 
 .category-item:hover .category-icon {
   filter: hue-rotate(30deg);
+  transform: scale(1.1);
 }
 
 /* ========== 猜你喜欢 - 新品推荐 ========== */
@@ -162,12 +195,18 @@ header {
 
 .section-header h3 {
   font-size: 18px;
+  color: #333;
 }
 
 .section-header a {
   color: #050505;
   text-decoration: none;
   font-weight: bold;
+  transition: var(--transition);
+}
+
+.section-header a:hover {
+  color: var(--color-primary);
 }
 
 .recommend-grid {
@@ -206,7 +245,7 @@ header {
 }
 
 .recommend-card:hover .recommend-img img {
-  transform: scale(1);
+  transform: scale(1.05);
 }
 
 .new-badge, .hot-badge {
@@ -218,6 +257,7 @@ header {
   font-size: 12px;
   font-weight: bold;
   color: white;
+  z-index: 1;
 }
 
 .new-badge {
@@ -396,6 +436,7 @@ header {
   min-width: 200px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 .store-search button {
@@ -406,6 +447,7 @@ header {
   border-radius: 4px;
   cursor: pointer;
   transition: var(--transition);
+  font-weight: bold;
 }
 
 .store-search button:hover {
@@ -417,34 +459,104 @@ footer {
   margin-top: 30px;
   padding: 20px 0;
   border-top: 1px solid #eee;
+  background: #f9f9f9;
 }
 
 .footer-nav {
   margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .footer-nav a {
   text-decoration: none;
   color: #333;
-  margin-right: 15px;
+  transition: var(--transition);
+}
+
+.footer-nav a:hover {
+  color: var(--color-primary);
 }
 
 .footer-info {
   color: #999;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 /* ========== 响应式适配 ========== */
 /* 平板 (768px以下) */
 @media (max-width: 768px) {
   .logo-img {
-    max-width: 80px;
+    max-width: 140px;
   }
 
+  /* 显示汉堡菜单按钮 */
+  .hamburger-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  /* 移动端导航样式 */
   .nav {
-    display: none; /* 移动端隐藏导航 */
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
 
+  .nav.active {
+    display: flex;
+    max-height: 400px;
+    padding: 15px 0;
+  }
+
+  .nav a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f5f5f5;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .nav a:last-child {
+    border-bottom: none;
+  }
+
+  .nav a:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  /* 调整header布局 */
+  .header-wrap {
+    align-items: center;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
+  .header-right a {
+    font-size: 14px;
+  }
+
+  /* 分类导航 */
   .category-nav {
     justify-content: space-around;
   }
@@ -454,9 +566,23 @@ footer {
     margin-bottom: 15px;
   }
 
+  .category-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .category-text {
+    font-size: 14px;
+  }
+
+  /* 推荐商品区域 */
   .recommend {
     margin: 30px 0 20px;
     padding: 15px 0;
+  }
+
+  .section-header h3 {
+    font-size: 16px;
   }
 
   .recommend-grid {
@@ -465,7 +591,7 @@ footer {
   }
 
   .recommend-img {
-    height: 140px;
+    height: 180px;
   }
 
   .recommend-info {
@@ -480,6 +606,7 @@ footer {
     font-size: 18px;
   }
 
+  /* 福利中心 */
   .welfare {
     padding: 20px 0;
     margin: 30px 0 20px;
@@ -505,10 +632,6 @@ footer {
     font-size: 28px;
   }
 
-  .welfare-content {
-    margin-bottom: 10px;
-  }
-
   .welfare-title {
     font-size: 15px;
   }
@@ -516,20 +639,46 @@ footer {
   .welfare-desc {
     font-size: 13px;
   }
+
+  /* 底部 */
+  .footer-nav {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-nav a {
+    font-size: 14px;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
 }
 
 /* 手机 (480px以下) */
 @media (max-width: 480px) {
+  .logo-img {
+    max-width: 120px;
+  }
+
   .category-item {
     flex: 0 0 100%;
+    max-width: 120px;
+    margin: 0 auto 15px;
   }
 
   .recommend-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .recommend-img {
+    height: 220px;
   }
 
   .welfare-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .welfare-card {
@@ -540,9 +689,34 @@ footer {
   .welfare-icon {
     margin-right: 16px;
     margin-bottom: 0;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
   }
 
   .welfare-content {
     margin-bottom: 0;
   }
+
+  /* 搜索区域 */
+  .store-search-wrap {
+    flex-direction: column;
+  }
+
+  .store-search input {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .store-search button {
+    width: 100%;
+  }
+
+  /* 底部 */
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
 }
+

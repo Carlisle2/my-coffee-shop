@@ -8,24 +8,30 @@
 </head>
 <body>
 
-<!-- 头部导航（新增「个人主页」链接） -->
+<!-- 头部导航（新增汉堡菜单按钮） -->
 <header>
 <div class="container header-wrap">
     <div class="logo">
         <img src="images/logo.png" alt="瑞幸咖啡logo" class="logo-img">
     </div>
-    <div class="nav">
-    <a href="#">首页</a>
-    <a href="#">菜单</a>
-    <a href="#">门店</a>
-    <a href="#">优惠</a>
-    <a href="#">咖啡文化</a>
-    <a href="personal.html">个人主页</a>
+    
+    <!-- 汉堡菜单按钮 -->
+    <button class="hamburger-btn" id="hamburgerBtn">☰</button>
+    
+    <!-- 主导航 -->
+    <div class="nav" id="mainNav">
+      <a href="#">首页</a>
+      <a href="#">菜单</a>
+      <a href="#">门店</a>
+      <a href="#">优惠</a>
+      <a href="#">咖啡文化</a>
+      <a href="personal.html">个人主页</a>
     </div>
+    
     <div class="header-right">
-    <a href="#">🔍搜索</a>
-    <a href="#">🛒购物车</a>
-    <a href="personal.html">登录/我的</a>
+      <a href="#">🔍搜索</a>
+      <a href="#">🛒购物车</a>
+      <a href="personal.html">登录/我的</a>
     </div>
 </div>
 </header>
@@ -201,6 +207,63 @@
     </div>
   </div>
 </footer>
+
+<!-- 汉堡菜单交互脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mainNav = document.getElementById('mainNav');
+  
+  if (hamburgerBtn && mainNav) {
+    hamburgerBtn.addEventListener('click', function() {
+      mainNav.classList.toggle('active');
+      
+      // 切换按钮图标
+      if (mainNav.classList.contains('active')) {
+        hamburgerBtn.textContent = '✕';
+        hamburgerBtn.style.color = 'var(--color-primary)';
+      } else {
+        hamburgerBtn.textContent = '☰';
+        hamburgerBtn.style.color = '#333';
+      }
+    });
+    
+    // 点击导航链接后关闭菜单
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          mainNav.classList.remove('active');
+          hamburgerBtn.textContent = '☰';
+          hamburgerBtn.style.color = '#333';
+        }
+      });
+    });
+    
+    // 点击页面其他区域关闭菜单
+    document.addEventListener('click', function(event) {
+      if (window.innerWidth <= 768 && 
+          mainNav.classList.contains('active') &&
+          !mainNav.contains(event.target) &&
+          !hamburgerBtn.contains(event.target)) {
+        mainNav.classList.remove('active');
+        hamburgerBtn.textContent = '☰';
+        hamburgerBtn.style.color = '#333';
+      }
+    });
+  }
+  
+  // 窗口大小改变时重置菜单状态
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      mainNav.classList.remove('active');
+      if (hamburgerBtn) {
+        hamburgerBtn.textContent = '☰';
+        hamburgerBtn.style.color = '#333';
+      }
+    }
+  });
+});
+</script>
 
 </body>
 </html>
